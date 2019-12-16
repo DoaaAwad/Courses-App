@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Instructors" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.InstructorsUVOCriteriaQuery.queryDescriptor}"
+                model="#{bindings.InstructorsUVOCriteriaQuery.queryModel}"
+                queryListener="#{bindings.InstructorsUVOCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.InstructorsUVOCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1" saveQueryMode="hidden" rows="1" maxColumns="2" modeChangeVisible="false"/>
+    </af:panelHeader>
+    <af:commandButton actionListener="#{bindings.CreateInsert.execute}" text="Add Instructor"
+                      disabled="#{!bindings.CreateInsert.enabled}" id="cb2" action="edit"/>
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:table value="#{bindings.InstructorsU1.collectionModel}" var="row" rows="#{bindings.InstructorsU1.rangeSize}"
+              emptyText="#{bindings.InstructorsU1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.InstructorsU1.rangeSize}" rowBandingInterval="0"
+              selectedRowKeys="#{bindings.InstructorsU1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.InstructorsU1.collectionModel.makeCurrent}" rowSelection="single"
+              id="resId1" styleClass="AFStretchWidth">
+      <af:column sortProperty="#{bindings.InstructorsU1.hints.InstructorName.name}" sortable="true"
+                 headerText="#{bindings.InstructorsU1.hints.InstructorName.label}" id="resId1c1">
+        <af:outputText value="#{row.InstructorName}" shortDesc="#{bindings.InstructorsU1.hints.InstructorName.tooltip}"
+                       id="ot1"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.InstructorsU1.hints.InstructorPhone.name}" sortable="true"
+                 headerText="#{bindings.InstructorsU1.hints.InstructorPhone.label}" id="resId1c2">
+        <af:outputText value="#{row.InstructorPhone}"
+                       shortDesc="#{bindings.InstructorsU1.hints.InstructorPhone.tooltip}" id="ot2">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.InstructorsU1.hints.InstructorPhone.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column id="c1" headerText="Action">
+        <af:panelGroupLayout id="pgl2">
+          <af:commandButton text="Edit" id="cb1" action="edit"/>
+          <af:commandButton text="Delete" id="cb3">
+            <af:showPopupBehavior popupId="::p1"/>
+          </af:commandButton>
+        </af:panelGroupLayout>
+      </af:column>
+    </af:table>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+              binding="#{pageFlowScope.InstructorBean.popUpDelete}">
+      <af:dialog id="d2" title="Confirmation message" type="cancel">
+        <f:facet name="buttonBar">
+          <af:commandButton text="OK" id="cb4" action="#{pageFlowScope.InstructorBean.deleteInstructor}"/>
+        </f:facet>
+        <af:outputText value="Are you sure you want to delete ?" id="ot5"/>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:InstructorBean-->
+</jsp:root>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="InstructorTestPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InstructorsU1" RangeSize="25" DataControl="AppModuleAMCoursesDataControl"
+              id="InstructorsU1Iterator"/>
+    <searchRegion Criteria="InstructorsUVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="InstructorsU1Iterator" id="InstructorsUVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InstructorsU1Iterator" id="InstructorsU1">
+      <nodeDefinition DefName="model.uiview.InstructorsUVO" Name="InstructorsU10">
+        <AttrNames>
+          <Item Value="InstructorName"/>
+          <Item Value="InstructorPhone"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

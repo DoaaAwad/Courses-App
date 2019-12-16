@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Invoices" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.InvoicesUVOCriteriaQuery.queryDescriptor}"
+                model="#{bindings.InvoicesUVOCriteriaQuery.queryModel}"
+                queryListener="#{bindings.InvoicesUVOCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.InvoicesUVOCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1" saveQueryMode="hidden" modeChangeVisible="false" rows="1" maxColumns="2"/>
+    </af:panelHeader>
+    <af:table value="#{bindings.InvoicesU2.collectionModel}" var="row" rows="#{bindings.InvoicesU2.rangeSize}"
+              emptyText="#{bindings.InvoicesU2.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.InvoicesU2.rangeSize}" rowBandingInterval="0"
+              selectedRowKeys="#{bindings.InvoicesU2.collectionModel.selectedRow}"
+              selectionListener="#{bindings.InvoicesU2.collectionModel.makeCurrent}" rowSelection="single" id="resId1"
+              styleClass="AFStretchWidth">
+      <af:column sortProperty="#{bindings.InvoicesU2.hints.InvoiceTotal.name}" sortable="true"
+                 headerText="#{bindings.InvoicesU2.hints.InvoiceTotal.label}" id="resId1c1">
+        <af:outputText value="#{row.InvoiceTotal}" shortDesc="#{bindings.InvoicesU2.hints.InvoiceTotal.tooltip}"
+                       id="ot1">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.InvoicesU2.hints.InvoiceTotal.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.InvoicesU2.hints.PaymentMethod.name}" sortable="true"
+                 headerText="#{bindings.InvoicesU2.hints.PaymentMethod.label}" id="resId1c2">
+        <af:outputText value="#{row.PaymentMethod}" shortDesc="#{bindings.InvoicesU2.hints.PaymentMethod.tooltip}"
+                       id="ot2"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.InvoicesU2.hints.InvoiceNumber.name}" sortable="true"
+                 headerText="#{bindings.InvoicesU2.hints.InvoiceNumber.label}" id="resId1c3">
+        <af:outputText value="#{row.InvoiceNumber}" shortDesc="#{bindings.InvoicesU2.hints.InvoiceNumber.tooltip}"
+                       id="ot3">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.InvoicesU2.hints.InvoiceNumber.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.InvoicesU2.hints.StudentId.name}" sortable="true"
+                 headerText="#{bindings.InvoicesU2.hints.StudentId.label}" id="resId1c5" width="200">
+        <af:selectOneChoice value="#{row.bindings.StudentId.inputValue}" label="#{row.bindings.StudentId.label}"
+                            required="#{bindings.InvoicesU2.hints.StudentId.mandatory}"
+                            shortDesc="#{bindings.InvoicesU2.hints.StudentId.tooltip}" readOnly="true" id="soc1">
+          <f:selectItems value="#{row.bindings.StudentId.items}" id="si1"/>
+        </af:selectOneChoice>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</ui:composition>

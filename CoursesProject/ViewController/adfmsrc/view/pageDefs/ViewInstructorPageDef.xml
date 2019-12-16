@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="ViewInstructorPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InstructorsU1" RangeSize="25" DataControl="AppModuleAMCoursesDataControl"
+              id="InstructorsU1Iterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="InstructorsU1Iterator" id="InstructorName">
+      <AttrNames>
+        <Item Value="InstructorName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InstructorsU1Iterator" id="InstructorPhone">
+      <AttrNames>
+        <Item Value="InstructorPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="InstructorsU1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="InstructorsU1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="InstructorsU1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="InstructorsU1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleAMCoursesDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AppModuleAMCoursesDataControl"/>
+  </bindings>
+</pageDefinition>

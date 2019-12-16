@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="InstructorTF">
+    <default-activity>SearchInstructor</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name>InstructorBean</managed-bean-name>
+      <managed-bean-class>view.InstructorManagedBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="SearchInstructor">
+      <page>/SearchInstructor.jsff</page>
+    </view>
+    <view id="ViewInstructor">
+      <page>/ViewInstructor.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>ViewInstructor</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>SearchInstructor</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>SearchInstructor</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>ViewInstructor</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

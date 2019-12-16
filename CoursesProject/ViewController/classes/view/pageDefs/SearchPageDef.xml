@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="SearchPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CoursesU1" RangeSize="25" DataControl="AppModuleAMCoursesDataControl" id="CoursesU1Iterator"/>
+    <searchRegion Criteria="CoursesUVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CoursesU1Iterator" id="CoursesUVOCriteriaQuery"/>
+    <iterator Binds="StudentsU1" RangeSize="25" DataControl="AppModuleAMCoursesDataControl" id="StudentsU1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CoursesU1Iterator" id="CoursesU1">
+      <nodeDefinition DefName="model.uiview.CoursesUVO" Name="CoursesU10">
+        <AttrNames>
+          <Item Value="CourseName"/>
+          <Item Value="CourseStartDate"/>
+          <Item Value="CourseDays"/>
+          <Item Value="CoursePrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CoursesU1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" InstanceName="AppModuleAMCoursesDataControl" DataControl="AppModuleAMCoursesDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="CoursesU1Iterator" id="Delete" InstanceName="AppModuleAMCoursesDataControl.CoursesU1"
+            DataControl="AppModuleAMCoursesDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="StudentsU1Iterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

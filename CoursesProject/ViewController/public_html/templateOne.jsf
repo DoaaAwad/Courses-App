@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+  <af:xmlContent>
+    <afc:component>
+      <afc:display-name>templateOne</afc:display-name>
+      <afc:facet>
+        <afc:facet-name>main</afc:facet-name>
+      </afc:facet>
+    </afc:component>
+  </af:xmlContent>
+  <af:panelStretchLayout topHeight="194px" bottomHeight="50px" id="pt_psl1">
+    <f:facet name="top">
+      <af:panelStretchLayout id="pt_psl3" inlineStyle="color:Blue;">
+        <f:facet name="center">
+          <af:image source="#{resource['images:sitebanner.jpg']}" id="pt_i1"/>
+        </f:facet>
+      </af:panelStretchLayout>
+    </f:facet>
+    <f:facet name="center">
+      <af:decorativeBox theme="dark" id="pt_db1">
+        <f:facet name="center">
+          <af:panelSplitter splitterPosition="100" id="pt_ps1">
+            <f:facet name="first">
+              <af:panelStretchLayout id="pt_psl2">
+                <f:facet name="center">
+                  <af:panelGroupLayout id="pt_pgl2">
+                    <af:spacer width="10" height="10" id="pt_s2"/>
+                    <af:navigationPane id="pt_np1" hint="list" inlineStyle="font-size:medium;">
+                      <af:commandNavigationItem text="Home" id="pt_cni1" action="goHome" immediate="true"/>
+                      <af:separator id="pt_s1"/>
+                      <af:commandNavigationItem text="Instructors" id="pt_cni2" action="goInstructors"
+                                                immediate="true"/>
+                      <af:commandNavigationItem text="Courses" id="pt_cni3" action="goCourses" immediate="true"/>
+                      <af:commandNavigationItem text="Invoices" id="pt_cni4" action="goInvoices" immediate="true"/>
+                    </af:navigationPane>
+                  </af:panelGroupLayout>
+                </f:facet>
+              </af:panelStretchLayout>
+            </f:facet>
+            <f:facet name="second">
+              <af:decorativeBox theme="medium" id="pt_db2">
+                <f:facet name="center">
+                  <af:facetRef facetName="main"/>
+                </f:facet>
+              </af:decorativeBox>
+            </f:facet>
+          </af:panelSplitter>
+        </f:facet>
+      </af:decorativeBox>
+    </f:facet>
+    <f:facet name="bottom">
+      <af:panelGroupLayout layout="scroll" id="pt_pgl1"
+                           inlineStyle="font-size:medium; text-align:center; font-family:Arial, Helvetica, sans-serif;">
+        <af:outputText value="© Copyright 2019. All Rights Reserved." id="pt_ot1"/>
+       <!-- <af:Link text="Oracle" destination="http://www.oracle.com" id="l2"/>-->
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</af:pageTemplateDef>

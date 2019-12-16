@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Course" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout id="pfl1">
+      <af:inputText value="#{bindings.CourseName.inputValue}" label="#{bindings.CourseName.hints.label}"
+                    required="#{bindings.CourseName.hints.mandatory}"
+                    columns="#{bindings.CourseName.hints.displayWidth}"
+                    maximumLength="#{bindings.CourseName.hints.precision}"
+                    shortDesc="#{bindings.CourseName.hints.tooltip}" id="it1" autoSubmit="true">
+        <f:validator binding="#{bindings.CourseName.validator}"/>
+      </af:inputText>
+      <af:inputDate value="#{bindings.CourseStartDate.inputValue}" label="#{bindings.CourseStartDate.hints.label}"
+                    required="#{bindings.CourseStartDate.hints.mandatory}"
+                    columns="#{bindings.CourseStartDate.hints.displayWidth}"
+                    shortDesc="#{bindings.CourseStartDate.hints.tooltip}" id="id1" autoSubmit="true">
+        <f:validator binding="#{bindings.CourseStartDate.validator}"/>
+        <af:convertDateTime pattern="#{bindings.CourseStartDate.format}"/>
+      </af:inputDate>
+      <af:inputText value="#{bindings.CourseDays.inputValue}" label="#{bindings.CourseDays.hints.label}"
+                    required="#{bindings.CourseDays.hints.mandatory}"
+                    columns="#{bindings.CourseDays.hints.displayWidth}"
+                    maximumLength="#{bindings.CourseDays.hints.precision}"
+                    shortDesc="#{bindings.CourseDays.hints.tooltip}" id="it2" autoSubmit="true">
+        <f:validator binding="#{bindings.CourseDays.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.CourseDays.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.CoursePrice.inputValue}" label="#{bindings.CoursePrice.hints.label}"
+                    required="#{bindings.CoursePrice.hints.mandatory}"
+                    columns="#{bindings.CoursePrice.hints.displayWidth}"
+                    maximumLength="#{bindings.CoursePrice.hints.precision}"
+                    shortDesc="#{bindings.CoursePrice.hints.tooltip}" id="it3" autoSubmit="true">
+        <f:validator binding="#{bindings.CoursePrice.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.CoursePrice.format}"/>
+      </af:inputText>
+      <af:selectOneChoice value="#{bindings.InstructorId.inputValue}" label="#{bindings.InstructorId.label}"
+                          required="#{bindings.InstructorId.hints.mandatory}"
+                          shortDesc="#{bindings.InstructorId.hints.tooltip}" id="soc1" autoSubmit="true">
+        <f:selectItems value="#{bindings.InstructorId.items}" id="si1"/>
+      </af:selectOneChoice>
+      <f:facet name="footer">
+        <af:group id="g2">
+          <af:toolbar id="t1">
+            <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" id="cb2" action="back"/>
+            <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="cb1"
+                              action="back">
+              <af:resetActionListener/>
+            </af:commandButton>
+          </af:toolbar>
+        </af:group>
+      </f:facet>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</jsp:root>

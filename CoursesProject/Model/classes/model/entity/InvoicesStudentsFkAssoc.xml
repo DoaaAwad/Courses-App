@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InvoicesStudentsFkAssoc"
+  Version="11.1.2.64.36">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Students"
+    Cardinality="1"
+    Source="true"
+    Owner="model.entity.StudentsEO"
+    CascadeDelete="true">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Students"/>
+      <Attr Name="_foreignKey" Value="model.entity.StudentsEO.StudentsPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.StudentsEO.StudentId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Invoices"
+    Cardinality="-1"
+    Owner="model.entity.InvoicesEO"
+    HasOwner="true">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Invoices"/>
+      <Attr Name="_foreignKey" Value="model.entity.InvoicesEO.InvoicesStudentsFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.InvoicesEO.StudentId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

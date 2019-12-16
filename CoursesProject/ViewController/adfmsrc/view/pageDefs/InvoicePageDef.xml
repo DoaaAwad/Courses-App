@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="InvoicePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InvoicesU1" RangeSize="25" DataControl="AppModuleAMCoursesDataControl" id="InvoicesU1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="InvoicesU1Iterator" id="InvoiceTotal">
+      <AttrNames>
+        <Item Value="InvoiceTotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicesU1Iterator" id="PaymentMethod">
+      <AttrNames>
+        <Item Value="PaymentMethod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InvoicesU1Iterator" id="InvoiceNumber">
+      <AttrNames>
+        <Item Value="InvoiceNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleAMCoursesDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AppModuleAMCoursesDataControl"/>
+  </bindings>
+</pageDefinition>

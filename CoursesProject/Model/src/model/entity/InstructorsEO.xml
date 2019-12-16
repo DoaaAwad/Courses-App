@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InstructorsEO"
+  Version="11.1.2.64.36"
+  DBObjectType="table"
+  DBObjectName="INSTRUCTORS"
+  AliasName="InstructorsEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <Attribute
+    Name="InstructorId"
+    ColumnName="INSTRUCTOR_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="INSTRUCTORS"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="InstructorName"
+    Precision="40"
+    ColumnName="INSTRUCTOR_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="INSTRUCTORS"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <validation:LengthValidationBean
+      Name="InstructorName_Rule_0"
+      ResId="model.entity.InstructorsEO.InstructorName_Rule_0"
+      OnAttribute="InstructorName"
+      CompareType="GREATERTHANEQUALTO"
+      DataType="CHARACTER"
+      CompareLength="4"
+      Inverse="false"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.entity.InstructorsEO.InstructorName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="InstructorPhone"
+    ColumnName="INSTRUCTOR_PHONE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="INSTRUCTORS"
+    IsNotNull="true">
+    <validation:RegExpValidationBean
+      Name="InstructorPhone_Rule_0"
+      ResId="model.entity.InstructorsEO.InstructorPhone_Rule_1"
+      OnAttribute="InstructorPhone"
+      Pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+      Flags="CaseInsensitive"
+      Inverse="false"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.entity.InstructorsEO.InstructorPhone_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="Courses"
+    Association="model.entity.CoursesInstructorFkAssoc"
+    AssociationEnd="model.entity.CoursesInstructorFkAssoc.Courses"
+    AssociationOtherEnd="model.entity.CoursesInstructorFkAssoc.Instructors"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="InstructorsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="INSTRUCTORS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.InstructorsEO.InstructorId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

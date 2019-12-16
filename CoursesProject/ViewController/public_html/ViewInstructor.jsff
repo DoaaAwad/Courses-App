@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Instructor" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout id="pfl1">
+      <af:inputText value="#{bindings.InstructorName.inputValue}" label="#{bindings.InstructorName.hints.label}"
+                    required="#{bindings.InstructorName.hints.mandatory}"
+                    columns="#{bindings.InstructorName.hints.displayWidth}"
+                    maximumLength="#{bindings.InstructorName.hints.precision}"
+                    shortDesc="#{bindings.InstructorName.hints.tooltip}" id="it1" autoSubmit="true">
+        <f:validator binding="#{bindings.InstructorName.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.InstructorPhone.inputValue}" label="#{bindings.InstructorPhone.hints.label}"
+                    required="#{bindings.InstructorPhone.hints.mandatory}"
+                    columns="#{bindings.InstructorPhone.hints.displayWidth}"
+                    maximumLength="#{bindings.InstructorPhone.hints.precision}"
+                    shortDesc="#{bindings.InstructorPhone.hints.tooltip}" id="it2" autoSubmit="true">
+        <f:validator binding="#{bindings.InstructorPhone.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.InstructorPhone.format}"/>
+      </af:inputText>
+      <f:facet name="footer">
+        <af:group id="g2">
+          <af:panelGroupLayout layout="horizontal" id="pgl1">
+            <f:facet name="separator">
+              <af:spacer width="10" height="1" id="s1"/>
+            </f:facet>
+            <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                              disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb1"/>
+            <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                              disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb2"/>
+            <af:commandButton actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                              partialSubmit="true" id="cb3"/>
+            <af:commandButton actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                              partialSubmit="true" id="cb4"/>
+          </af:panelGroupLayout>
+          <af:toolbar id="t1">
+            <af:commandButton actionListener="#{bindings.Commit.execute}" text="Save"
+                              disabled="#{!bindings.Commit.enabled}" id="cb6" action="back"/>
+            <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                              disabled="#{!bindings.Rollback.enabled}" immediate="true" id="cb5" action="back">
+              <af:resetActionListener/>
+            </af:commandButton>
+          </af:toolbar>
+        </af:group>
+      </f:facet>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</jsp:root>

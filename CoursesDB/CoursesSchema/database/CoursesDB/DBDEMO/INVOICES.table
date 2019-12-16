@@ -1,0 +1,220 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">cea5e35c-8852-48b1-b1af-3a83d8e94cf1</identifier>
+  </ID>
+  <name>INVOICES</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">5dba61b1-698e-42b7-81ea-80793e3a4dad</identifier>
+      </ID>
+      <name>INVOICE_ID</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">cb669dd5-bb0c-42ea-9cf5-0fcbf070bed9</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">9beb078d-c2d1-40b0-86d9-9602821a54e9</identifier>
+      </ID>
+      <name>INVOICE_TOTAL</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">3958ac9a-5223-4281-8669-14dd6d90b583</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">80ec5098-4105-4ae0-9935-4b802cf21ba4</identifier>
+      </ID>
+      <name>PAYMENT_METHOD</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">2abd3511-3ad8-4631-b7ca-db1ea6e5c312</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">50</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">3eda559b-ba82-47e4-b4cb-fe596a6cd5a6</identifier>
+      </ID>
+      <name>INVOICE_NUMBER</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">e5347afd-4614-4c68-bedc-90ad066b08da</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">d18fad31-384e-4ed5-9293-c43a5c662ca7</identifier>
+      </ID>
+      <name>Invoice_Status </name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">bde0d2e7-5d56-459f-a294-d840c6eecac6</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0f54b960-adab-473d-939a-b5bcbe3596e3</identifier>
+      </ID>
+      <name>INVOICES_STUDENTS_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>INVOICE_ID</name>
+          <identifier class="java.lang.String">5dba61b1-698e-42b7-81ea-80793e3a4dad</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>INVOICES</name>
+            <identifier class="java.lang.String">cea5e35c-8852-48b1-b1af-3a83d8e94cf1</identifier>
+            <schemaName>DBDEMO</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>DBDEMO</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>STUDENTS_PK</name>
+        <identifier class="java.lang.String">3c35d9c9-f550-4255-aabc-7a0d401032b1</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>STUDENTS</name>
+          <identifier class="java.lang.String">788894ef-9642-4a85-a832-21e7a88aa98e</identifier>
+          <schemaName>DBDEMO</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>DBDEMO</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">4efc33da-f0ef-420d-886c-c9d3e75b076b</identifier>
+      </ID>
+      <name>INVOICES_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>INVOICE_ID</name>
+          <identifier class="java.lang.String">5dba61b1-698e-42b7-81ea-80793e3a4dad</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>INVOICES</name>
+            <identifier class="java.lang.String">cea5e35c-8852-48b1-b1af-3a83d8e94cf1</identifier>
+            <schemaName>DBDEMO</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>DBDEMO</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>INVOICES_PK</name>
+        <identifier class="java.lang.String">4be96df2-7ccd-41a2-9031-11f5008ab81b</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>INVOICES</name>
+          <identifier class="java.lang.String">cea5e35c-8852-48b1-b1af-3a83d8e94cf1</identifier>
+          <schemaName>DBDEMO</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>DBDEMO</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">4be96df2-7ccd-41a2-9031-11f5008ab81b</identifier>
+      </ID>
+      <name>INVOICES_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">c2e39588-f3f2-43df-99d0-f29352e624f4</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">05b325ec-e77a-4a06-9362-4976d788c6b8</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>INVOICE_ID</name>
+              <identifier class="java.lang.String">5dba61b1-698e-42b7-81ea-80793e3a4dad</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>INVOICES</name>
+                <identifier class="java.lang.String">cea5e35c-8852-48b1-b1af-3a83d8e94cf1</identifier>
+                <schemaName>DBDEMO</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>DBDEMO</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <schema>
+        <name>DBDEMO</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>DBDEMO</name>
+  </schema>
+</table>

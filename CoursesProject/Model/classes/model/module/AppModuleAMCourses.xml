@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModuleAMCourses"
+  Version="11.1.2.64.36"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="CoursesU1"
+    ViewObjectName="model.uiview.CoursesUVO"/>
+  <ViewUsage
+    Name="StudentsU1"
+    ViewObjectName="model.uiview.StudentsUVO"/>
+  <ViewUsage
+    Name="InstructorsU1"
+    ViewObjectName="model.uiview.InstructorsUVO"/>
+  <ViewUsage
+    Name="CoursesU2"
+    ViewObjectName="model.uiview.CoursesUVO"/>
+  <ViewUsage
+    Name="InvoicesU1"
+    ViewObjectName="model.uiview.InvoicesUVO"/>
+  <ViewUsage
+    Name="InvoicesU2"
+    ViewObjectName="model.uiview.InvoicesUVO"/>
+  <ViewLinkUsage
+    Name="ViewLink1"
+    ViewLinkObjectName="model.uiview.ViewLink"
+    SrcViewUsageName="model.module.AppModuleAMCourses.CoursesU1"
+    DstViewUsageName="model.module.AppModuleAMCourses.StudentsU1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CoursesInstructorFkLink1"
+    ViewLinkObjectName="model.uiview.CoursesInstructorFkLink"
+    SrcViewUsageName="model.module.AppModuleAMCourses.InstructorsU1"
+    DstViewUsageName="model.module.AppModuleAMCourses.CoursesU2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="InvoicesStudentsFkLink1"
+    ViewLinkObjectName="model.uiview.InvoicesStudentsFkLink"
+    SrcViewUsageName="model.module.AppModuleAMCourses.StudentsU1"
+    DstViewUsageName="model.module.AppModuleAMCourses.InvoicesU1"
+    Reversed="false"/>
+</AppModule>

@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">0c4c1571-2c8e-426e-bf2c-9f55e9ef7ab1</identifier>
+  </ID>
+  <name>INSTRUCTORS</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">9c1a700e-87a4-428d-a4e6-56ec983d68c0</identifier>
+      </ID>
+      <name>INSTRUCTOR_ID</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">a72c8d01-a852-420b-baf3-4dc19462e0e4</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c129dc73-a565-4fb1-bda0-fdaa8b8e3f3f</identifier>
+      </ID>
+      <name>INSTRUCTOR_NAME</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">53fb2189-a20a-430e-8497-dcf437223b09</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">40</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">f7e164f6-aa3a-4493-bf4d-3ca362668fd7</identifier>
+      </ID>
+      <name>INSTRUCTOR_PHONE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">f1547746-03e3-4516-aa59-aab5f4c01c45</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">44e6dc5e-be4f-4787-9731-fe5c638a6130</identifier>
+      </ID>
+      <name>INSTRUCTORS_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>INSTRUCTOR_ID</name>
+          <identifier class="java.lang.String">9c1a700e-87a4-428d-a4e6-56ec983d68c0</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>INSTRUCTORS</name>
+            <identifier class="java.lang.String">0c4c1571-2c8e-426e-bf2c-9f55e9ef7ab1</identifier>
+            <schemaName>DBDEMO</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>DBDEMO</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>INSTRUCTORS_PK</name>
+        <identifier class="java.lang.String">5dcef71b-d1b8-4917-b116-cfa572d5e9d3</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>INSTRUCTORS</name>
+          <identifier class="java.lang.String">0c4c1571-2c8e-426e-bf2c-9f55e9ef7ab1</identifier>
+          <schemaName>DBDEMO</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>DBDEMO</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">5dcef71b-d1b8-4917-b116-cfa572d5e9d3</identifier>
+      </ID>
+      <name>INSTRUCTORS_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">210362fe-e92e-407d-b7ed-5a827e39e6ff</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">c6a228e4-661a-4db5-a922-9d26a8929c50</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>INSTRUCTOR_ID</name>
+              <identifier class="java.lang.String">9c1a700e-87a4-428d-a4e6-56ec983d68c0</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>INSTRUCTORS</name>
+                <identifier class="java.lang.String">0c4c1571-2c8e-426e-bf2c-9f55e9ef7ab1</identifier>
+                <schemaName>DBDEMO</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>DBDEMO</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <schema>
+        <name>DBDEMO</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>DBDEMO</name>
+  </schema>
+</table>

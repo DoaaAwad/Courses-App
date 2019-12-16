@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StudentCoursesROVO"
+  Version="11.1.2.64.36"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT StudentCourses.STUDENT_COURSES_ID,
+       StudentCourses.STUDENT_ID,
+       StudentCourses.COURSE_ID
+FROM STUDENT_COURSES StudentCourses]]></SQLQuery>
+  <ViewAttribute
+    Name="StudentCoursesId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="STUDENT_COURSES_ID"
+    Expression="STUDENT_COURSES_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="StudentId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="STUDENT_ID"
+    Expression="STUDENT_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CourseId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COURSE_ID"
+    Expression="COURSE_ID"
+    SQLType="NUMERIC"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="StudentCoursesId"/>
+  </AttrArray>
+</ViewObject>

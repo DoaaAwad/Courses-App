@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.64.36" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/Search.jsff" usageId="view_SearchPageDef"/>
+    <page path="/EditCourses.jsff" usageId="view_EditCoursesPageDef"/>
+    <page path="/Edit.jsff" usageId="view_EditPageDef"/>
+    <page path="/SearchInstructor.jsff" usageId="view_SearchInstructorPageDef"/>
+    <page path="/ViewInstructor.jsff" usageId="view_ViewInstructorPageDef"/>
+    <page path="/Registration.jsff" usageId="view_RegistrationPageDef"/>
+    <page path="/Students.jsff" usageId="view_StudentsPageDef"/>
+    <page path="/Invoice.jsff" usageId="view_InvoicePageDef"/>
+    <page path="/invociessearch.jsff" usageId="view_invociessearchPageDef"/>
+    <page path="/Courses.jsf" usageId="view_CoursesPageDef1"/>
+    <page path="/Instructors.jsf" usageId="view_InstructorsPageDef1"/>
+    <page path="/Invoices.jsf" usageId="view_InvoicesPageDef1"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_SearchPageDef" path="view.pageDefs.SearchPageDef"/>
+    <page id="view_UpdCoursesPageDef" path="view.pageDefs.UpdCoursesPageDef"/>
+    <page id="view_CoursesTestPageDef" path="view.pageDefs.CoursesTestPageDef"/>
+    <page id="view_view1PageDef" path="view.pageDefs.view1PageDef"/>
+    <page id="view_EditCoursesPageDef" path="view.pageDefs.EditCoursesPageDef"/>
+    <page id="view_EditPageDef" path="view.pageDefs.EditPageDef"/>
+    <page id="view_SearchInstructorPageDef" path="view.pageDefs.SearchInstructorPageDef"/>
+    <page id="view_ViewInstructorPageDef" path="view.pageDefs.ViewInstructorPageDef"/>
+    <page id="view_InstructorTestPageDef" path="view.pageDefs.InstructorTestPageDef"/>
+    <page id="view_ITestPageDef" path="view.pageDefs.ITestPageDef"/>
+    <page id="view_RegistrationPageDef" path="view.pageDefs.RegistrationPageDef"/>
+    <page id="view_StudentsPageDef" path="view.pageDefs.StudentsPageDef"/>
+    <page id="view_InvoicePageDef" path="view.pageDefs.InvoicePageDef"/>
+    <page id="view_invociessearchPageDef" path="view.pageDefs.invociessearchPageDef"/>
+    <page id="view_searchinvoicePageDef" path="view.pageDefs.searchinvoicePageDef"/>
+    <page id="view_CoursesPageDef" path="view.pageDefs.CoursesPageDef"/>
+    <page id="view_InstructorsPageDef" path="view.pageDefs.InstructorsPageDef"/>
+    <page id="view_InvoicesPageDef" path="view.pageDefs.InvoicesPageDef"/>
+    <page id="view_Invoices1PageDef" path="view.pageDefs.Invoices1PageDef"/>
+    <page id="view_Instructors1PageDef" path="view.pageDefs.Instructors1PageDef"/>
+    <page id="view_CoursesPageDef1" path="view.pageDefs.CoursesPageDef1"/>
+    <page id="view_InstructorsPageDef1" path="view.pageDefs.InstructorsPageDef1"/>
+    <page id="view_InvoicesPageDef1" path="view.pageDefs.InvoicesPageDef1"/>
+    <page id="view_testPageDef" path="view.pageDefs.testPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleAMCoursesDataControl" Package="model.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleAMCoursesLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

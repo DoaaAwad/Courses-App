@@ -1,0 +1,214 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">1c2a1bda-13b5-41c1-be85-7b4246e70a11</identifier>
+  </ID>
+  <name>COURSES</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">da2b7f26-029f-43ed-b9a1-caedd1ef5e34</identifier>
+      </ID>
+      <name>COURSE_ID</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">f8b78c82-05f9-4713-8e0b-fca2bed0f636</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a88542c9-a397-45cf-a5a6-b401cfdd524c</identifier>
+      </ID>
+      <name>COURSE_NAME</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">8b4d24ed-d1bf-443d-acad-43e493cef98e</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">baf693fd-a1ec-4e1b-907c-4fbff5a4fe21</identifier>
+      </ID>
+      <name>COURSE_START_DATE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">26231655-84ac-424d-a764-532445b42caf</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">84a43d30-dbe4-4848-8925-d29ebb195373</identifier>
+      </ID>
+      <name>COURSE_DAYS</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">264452c0-8ce1-4b1a-8b0a-8fded04f03dd</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">1653db28-11f0-4bc3-82b8-7cf8b366eda4</identifier>
+      </ID>
+      <name>COURSE_PRICE</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">dc337b57-a02c-4fc8-bd77-9c4180cc8b93</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7a2c49d8-26dd-450a-ac7a-367616772ab2</identifier>
+      </ID>
+      <name>COURSES_INSTRUCTOR_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>COURSE_ID</name>
+          <identifier class="java.lang.String">da2b7f26-029f-43ed-b9a1-caedd1ef5e34</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>COURSES</name>
+            <identifier class="java.lang.String">1c2a1bda-13b5-41c1-be85-7b4246e70a11</identifier>
+            <schemaName>DBDEMO</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>DBDEMO</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>INSTRUCTORS_PK</name>
+        <identifier class="java.lang.String">44e6dc5e-be4f-4787-9731-fe5c638a6130</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>INSTRUCTORS</name>
+          <identifier class="java.lang.String">0c4c1571-2c8e-426e-bf2c-9f55e9ef7ab1</identifier>
+          <schemaName>DBDEMO</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>DBDEMO</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">102a999b-92ea-46a1-9a6a-76c5465508cf</identifier>
+      </ID>
+      <name>COURSES_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>COURSEID</name>
+          <identifier class="java.lang.String">da2b7f26-029f-43ed-b9a1-caedd1ef5e34</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>COURSES</name>
+            <identifier class="java.lang.String">1c2a1bda-13b5-41c1-be85-7b4246e70a11</identifier>
+            <schemaName>DBDEMO</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>DBDEMO</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <indexID class="oracle.javatools.db.IdentifierBasedID">
+        <name>COURSES_PK</name>
+        <identifier class="java.lang.String">63f86cac-309e-4560-978d-2a52cf7c3e71</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>COURSES</name>
+          <identifier class="java.lang.String">1c2a1bda-13b5-41c1-be85-7b4246e70a11</identifier>
+          <schemaName>DBDEMO</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>DBDEMO</schemaName>
+        <type>INDEX</type>
+      </indexID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">63f86cac-309e-4560-978d-2a52cf7c3e71</identifier>
+      </ID>
+      <name>COURSES_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">6db2402e-35b1-4c6b-8446-b47a171738a9</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">276777d1-fe2b-400b-b11b-c7206bb1526e</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>COURSEID</name>
+              <identifier class="java.lang.String">da2b7f26-029f-43ed-b9a1-caedd1ef5e34</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>COURSES</name>
+                <identifier class="java.lang.String">1c2a1bda-13b5-41c1-be85-7b4246e70a11</identifier>
+                <schemaName>DBDEMO</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>DBDEMO</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <parallelDegree>1</parallelDegree>
+      <schema>
+        <name>DBDEMO</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>DBDEMO</name>
+  </schema>
+</table>

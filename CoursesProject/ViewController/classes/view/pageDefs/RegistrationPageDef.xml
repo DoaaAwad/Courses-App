@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="RegistrationPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="StudentsU1" RangeSize="25" DataControl="AppModuleAMCoursesDataControl" id="StudentsU1Iterator"/>
+    <iterator Binds="InvoicesU1" RangeSize="10" DataControl="AppModuleAMCoursesDataControl" id="InvoicesU1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="StudentsU1Iterator" id="StudentName">
+      <AttrNames>
+        <Item Value="StudentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StudentsU1Iterator" id="StudentAge">
+      <AttrNames>
+        <Item Value="StudentAge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StudentsU1Iterator" id="StudentAddress">
+      <AttrNames>
+        <Item Value="StudentAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StudentsU1Iterator" id="StudentWork">
+      <AttrNames>
+        <Item Value="StudentWork"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StudentsU1Iterator" id="StudentPhone">
+      <AttrNames>
+        <Item Value="StudentPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StudentsU1Iterator" id="StudentCollege">
+      <AttrNames>
+        <Item Value="StudentCollege"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleAMCoursesDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AppModuleAMCoursesDataControl"/>
+    <action IterBinding="InvoicesU1Iterator" id="CreateInsert" InstanceName="AppModuleAMCoursesDataControl.InvoicesU1"
+            DataControl="AppModuleAMCoursesDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

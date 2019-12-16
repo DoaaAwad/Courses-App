@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-definition">
+    <default-activity>Search</default-activity>
+    <managed-bean id="__7">
+      <managed-bean-name>CourseSearchBean</managed-bean-name>
+      <managed-bean-class>view.CourseSearchClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__16">
+      <managed-bean-name>Invoice</managed-bean-name>
+      <managed-bean-class>view.Invoice</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="Search">
+      <page>/Search.jsff</page>
+    </view>
+    <view id="Edit">
+      <page>/Edit.jsff</page>
+    </view>
+    <view id="Registration">
+      <page>/Registration.jsff</page>
+    </view>
+    <view id="Students">
+      <page>/Students.jsff</page>
+    </view>
+    <view id="Invoice">
+      <page>/Invoice.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>Search</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>view</from-outcome>
+        <to-activity-id>Edit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>Add</from-outcome>
+        <to-activity-id>Registration</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>ViewStudents</from-outcome>
+        <to-activity-id>Students</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>Search</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>Students</from-activity-id>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>Registration</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>Payment</from-outcome>
+        <to-activity-id>Invoice</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

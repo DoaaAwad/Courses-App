@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Course Students" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout id="pfl1">
+      <af:panelLabelAndMessage label="#{bindings.CourseName.hints.label}" id="plam1">
+        <af:outputText value="#{bindings.CourseName.inputValue}" shortDesc="#{bindings.CourseName.hints.tooltip}"
+                       id="ot1"/>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.CourseStartDate.hints.label}" id="plam2">
+        <af:outputText value="#{bindings.CourseStartDate.inputValue}"
+                       shortDesc="#{bindings.CourseStartDate.hints.tooltip}" id="ot2">
+          <af:convertDateTime pattern="#{bindings.CourseStartDate.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.CourseDays.hints.label}" id="plam3">
+        <af:outputText value="#{bindings.CourseDays.inputValue}" shortDesc="#{bindings.CourseDays.hints.tooltip}"
+                       id="ot3">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.CourseDays.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.CoursePrice.hints.label}" id="plam4">
+        <af:outputText value="#{bindings.CoursePrice.inputValue}" shortDesc="#{bindings.CoursePrice.hints.tooltip}"
+                       id="ot4">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.CoursePrice.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:selectOneChoice value="#{bindings.InstructorId.inputValue}" label="#{bindings.InstructorId.label}"
+                          required="#{bindings.InstructorId.hints.mandatory}"
+                          shortDesc="#{bindings.InstructorId.hints.tooltip}" readOnly="true" id="soc1">
+        <f:selectItems value="#{bindings.InstructorId.items}" id="si1"/>
+      </af:selectOneChoice>
+      <af:toolbar id="t2">
+        <af:commandButton text="Back" id="cb1" action="back"/>
+      </af:toolbar>
+    </af:panelFormLayout>
+  </af:panelHeader>
+  <af:spacer width="10" height="10" id="s1"/>
+  <af:panelGroupLayout id="pgl1">
+    <af:table value="#{bindings.StudentsU1.collectionModel}" var="row" rows="#{bindings.StudentsU1.rangeSize}"
+              emptyText="#{bindings.StudentsU1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.StudentsU1.rangeSize}" rowBandingInterval="0"
+              selectedRowKeys="#{bindings.StudentsU1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.StudentsU1.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+              styleClass="AFStretchWidth">
+      <af:column sortProperty="#{bindings.StudentsU1.hints.StudentName.name}" sortable="true"
+                 headerText="#{bindings.StudentsU1.hints.StudentName.label}" id="c1">
+        <af:outputText value="#{row.StudentName}" shortDesc="#{bindings.StudentsU1.hints.StudentName.tooltip}"
+                       id="ot5"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentsU1.hints.StudentAge.name}" sortable="true"
+                 headerText="#{bindings.StudentsU1.hints.StudentAge.label}" id="c2">
+        <af:outputText value="#{row.StudentAge}" shortDesc="#{bindings.StudentsU1.hints.StudentAge.tooltip}" id="ot6">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.StudentsU1.hints.StudentAge.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentsU1.hints.StudentAddress.name}" sortable="true"
+                 headerText="#{bindings.StudentsU1.hints.StudentAddress.label}" id="c3">
+        <af:outputText value="#{row.StudentAddress}" shortDesc="#{bindings.StudentsU1.hints.StudentAddress.tooltip}"
+                       id="ot7"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentsU1.hints.StudentWork.name}" sortable="true"
+                 headerText="#{bindings.StudentsU1.hints.StudentWork.label}" id="c4">
+        <af:outputText value="#{row.StudentWork}" shortDesc="#{bindings.StudentsU1.hints.StudentWork.tooltip}"
+                       id="ot8"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentsU1.hints.StudentPhone.name}" sortable="true"
+                 headerText="#{bindings.StudentsU1.hints.StudentPhone.label}" id="c5">
+        <af:outputText value="#{row.StudentPhone}" shortDesc="#{bindings.StudentsU1.hints.StudentPhone.tooltip}"
+                       id="ot9">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.StudentsU1.hints.StudentPhone.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentsU1.hints.StudentCollege.name}" sortable="true"
+                 headerText="#{bindings.StudentsU1.hints.StudentCollege.label}" id="c6">
+        <af:outputText value="#{row.StudentCollege}" shortDesc="#{bindings.StudentsU1.hints.StudentCollege.tooltip}"
+                       id="ot10"/>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

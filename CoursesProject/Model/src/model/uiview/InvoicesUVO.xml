@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InvoicesUVO"
+  Version="11.1.2.64.36"
+  SelectList='InvoicesEO.INVOICE_ID, 
+       InvoicesEO.INVOICE_TOTAL, 
+       InvoicesEO.PAYMENT_METHOD, 
+       InvoicesEO.INVOICE_NUMBER, 
+       InvoicesEO.STUDENT_ID'
+  FromList="INVOICES InvoicesEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <ViewAccessor
+    Name="StudentsROVO1"
+    ViewObjectName="model.uiview.StudentsROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_StudentId"
+    ListVOName="StudentsROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StudentId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StudentId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StudentName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="InvoicesEO"
+    Entity="model.entity.InvoicesEO"/>
+  <ViewAttribute
+    Name="InvoiceId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceId"
+    EntityUsage="InvoicesEO"
+    AliasName="INVOICE_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="InvoiceTotal"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceTotal"
+    EntityUsage="InvoicesEO"
+    AliasName="INVOICE_TOTAL"/>
+  <ViewAttribute
+    Name="PaymentMethod"
+    PrecisionRule="true"
+    EntityAttrName="PaymentMethod"
+    EntityUsage="InvoicesEO"
+    AliasName="PAYMENT_METHOD"/>
+  <ViewAttribute
+    Name="InvoiceNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceNumber"
+    EntityUsage="InvoicesEO"
+    AliasName="INVOICE_NUMBER"/>
+  <ViewAttribute
+    Name="StudentId"
+    PrecisionRule="true"
+    EntityAttrName="StudentId"
+    EntityUsage="InvoicesEO"
+    AliasName="STUDENT_ID"
+    LOVName="LOV_StudentId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="InvoicesUVOCriteria"
+    ViewObjectName="model.uiview.InvoicesUVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="Never"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InvoicesUVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="InvoiceNumber"
+        ViewAttribute="InvoiceNumber"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="StudentId"
+        ViewAttribute="StudentId"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+</ViewObject>

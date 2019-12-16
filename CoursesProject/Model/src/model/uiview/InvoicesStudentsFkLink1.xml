@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InvoicesStudentsFkLink1"
+  Version="11.1.2.64.36">
+  <ViewLinkDefEnd
+    Name="StudentsROVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.uiview.StudentsROVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="StudentsROVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.uiview.StudentsROVO.StudentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="InvoicesROVO"
+    Cardinality="-1"
+    Owner="model.uiview.InvoicesROVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="InvoicesROVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.uiview.InvoicesROVO.StudentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

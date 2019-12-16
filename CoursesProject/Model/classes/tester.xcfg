@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="model.module.AppModuleAMCourses">
+      <AppModuleConfig name="16EC58907E9" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DBconnection="java:comp/env/jdbc/CoursesConnDS" IsLazyLoadingTrue="true" JDBCName="CoursesConn" jbo.project="model.Model" BC4JConfigName="AppModuleAMCoursesLocal" DeployPlatform="LOCAL" ApplicationName="model.module.AppModuleAMCourses">
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle"/>
+         <Security AppModuleJndiName="model.module.AppModuleAMCourses"/>
+         <Tester FullProxyInterfaceName="model.module.common.AppModuleAMCourses"/>
+         <Custom LastUsedConfiguration="AppModuleAMCoursesLocal" JDBCDataSource="java:comp/env/jdbc/CoursesConnDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

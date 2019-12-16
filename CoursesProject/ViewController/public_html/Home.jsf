@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Home.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelStretchLayout id="psl1" startWidth="245px" topHeight="168px" bottomHeight="26px">
+                <f:facet name="bottom">
+                    <af:panelGroupLayout id="pgl2" inlineStyle="text-align:center;">
+                        <af:outputText value="© Copyright 2019. All Rights Reserved." id="ot1" inlineStyle="font-size:medium;"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="center">
+                    <af:panelGroupLayout id="pgl1"
+                                         inlineStyle="margin:100px; padding:10px;" layout="horizontal">
+                        <af:spacer width="250" height="10" id="s1"/>
+                        <af:commandButton text="Courses" id="cb1" action="goCourses"
+                                          icon="#{resource['images:courses.jpg']}"/>
+                        <af:spacer width="30" height="10" id="s2"/>
+                        <af:commandButton text="Instructors" id="cb2" action="goInstructors"
+                                          icon="#{resource['images:instructors.png']}"/>
+                        <af:spacer width="30" height="10" id="s3"/>
+                        <af:commandButton text="Invoices" id="cb3" action="goInvoices"
+                                          icon="#{resource['images:invoices.png']}"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="start">
+                    <af:panelStretchLayout id="psl2" endWidth="600px" startWidth="500px" bottomHeight="150px"
+                                           topHeight="200px">
+                        <f:facet name="center"/>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="end"/>
+                <f:facet name="top">
+                    <af:activeImage source="#{resource['images:sitebanner.jpg']}" id="ai1"/>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+</f:view>

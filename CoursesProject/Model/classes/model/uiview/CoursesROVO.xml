@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CoursesROVO"
+  Version="11.1.2.64.36"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="InstructorsROVO1"
+    ViewObjectName="model.uiview.InstructorsROVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_InstructorId"
+    ListVOName="InstructorsROVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InstructorId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="InstructorId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="InstructorName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Courses.COURSE_ID,
+       Courses.COURSE_NAME,
+       Courses.COURSE_START_DATE,
+       Courses.COURSE_DAYS,
+       Courses.COURSE_PRICE,
+       Courses.INSTRUCTOR_ID
+FROM COURSES Courses]]></SQLQuery>
+  <ViewAttribute
+    Name="CourseId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COURSE_ID"
+    Expression="COURSE_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CourseName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COURSE_NAME"
+    Expression="COURSE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CourseStartDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="COURSE_START_DATE"
+    Expression="COURSE_START_DATE"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="CourseDays"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COURSE_DAYS"
+    Expression="COURSE_DAYS"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CoursePrice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COURSE_PRICE"
+    Expression="COURSE_PRICE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="InstructorId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="INSTRUCTOR_ID"
+    Expression="INSTRUCTOR_ID"
+    SQLType="NUMERIC"
+    LOVName="LOV_InstructorId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="CoursesROVOCriteria"
+    ViewObjectName="model.uiview.CoursesROVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CoursesROVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CourseName"
+        ViewAttribute="CourseName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="CourseId"/>
+  </AttrArray>
+</ViewObject>

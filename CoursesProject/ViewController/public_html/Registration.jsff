@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="Student Registeration" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout id="pfl1">
+      <af:inputText value="#{bindings.StudentName.inputValue}" label="#{bindings.StudentName.hints.label}"
+                    required="#{bindings.StudentName.hints.mandatory}"
+                    columns="#{bindings.StudentName.hints.displayWidth}"
+                    maximumLength="#{bindings.StudentName.hints.precision}"
+                    shortDesc="#{bindings.StudentName.hints.tooltip}" id="it1" autoSubmit="true">
+        <f:validator binding="#{bindings.StudentName.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.StudentAge.inputValue}" label="#{bindings.StudentAge.hints.label}"
+                    required="#{bindings.StudentAge.hints.mandatory}"
+                    columns="#{bindings.StudentAge.hints.displayWidth}"
+                    maximumLength="#{bindings.StudentAge.hints.precision}"
+                    shortDesc="#{bindings.StudentAge.hints.tooltip}" id="it2" autoSubmit="true">
+        <f:validator binding="#{bindings.StudentAge.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.StudentAge.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.StudentAddress.inputValue}" label="#{bindings.StudentAddress.hints.label}"
+                    required="#{bindings.StudentAddress.hints.mandatory}"
+                    columns="#{bindings.StudentAddress.hints.displayWidth}"
+                    maximumLength="#{bindings.StudentAddress.hints.precision}"
+                    shortDesc="#{bindings.StudentAddress.hints.tooltip}" id="it3" autoSubmit="true">
+        <f:validator binding="#{bindings.StudentAddress.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.StudentWork.inputValue}" label="#{bindings.StudentWork.hints.label}"
+                    required="#{bindings.StudentWork.hints.mandatory}"
+                    columns="#{bindings.StudentWork.hints.displayWidth}"
+                    maximumLength="#{bindings.StudentWork.hints.precision}"
+                    shortDesc="#{bindings.StudentWork.hints.tooltip}" id="it4" autoSubmit="true">
+        <f:validator binding="#{bindings.StudentWork.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.StudentPhone.inputValue}" label="#{bindings.StudentPhone.hints.label}"
+                    required="#{bindings.StudentPhone.hints.mandatory}"
+                    columns="#{bindings.StudentPhone.hints.displayWidth}"
+                    maximumLength="#{bindings.StudentPhone.hints.precision}"
+                    shortDesc="#{bindings.StudentPhone.hints.tooltip}" id="it5" autoSubmit="true">
+        <f:validator binding="#{bindings.StudentPhone.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.StudentPhone.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.StudentCollege.inputValue}" label="#{bindings.StudentCollege.hints.label}"
+                    required="#{bindings.StudentCollege.hints.mandatory}"
+                    columns="#{bindings.StudentCollege.hints.displayWidth}"
+                    maximumLength="#{bindings.StudentCollege.hints.precision}"
+                    shortDesc="#{bindings.StudentCollege.hints.tooltip}" id="it6" autoSubmit="true">
+        <f:validator binding="#{bindings.StudentCollege.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+    <af:commandButton text="Commit" disabled="#{!bindings.Commit.enabled}"
+                      id="cb1" action="#{pageFlowScope.Invoice.commit}"/>
+    <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                      disabled="#{!bindings.Rollback.enabled}" immediate="true" id="cb2" action="back">
+      <af:resetActionListener/>
+    </af:commandButton>
+  </af:panelHeader>
+</jsp:root>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="EditCoursesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CoursesU1" RangeSize="25" DataControl="AppModuleAMCoursesDataControl" id="CoursesU1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CoursesU1Iterator" id="CourseName">
+      <AttrNames>
+        <Item Value="CourseName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CoursesU1Iterator" id="CourseStartDate">
+      <AttrNames>
+        <Item Value="CourseStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CoursesU1Iterator" id="CourseDays">
+      <AttrNames>
+        <Item Value="CourseDays"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CoursesU1Iterator" id="CoursePrice">
+      <AttrNames>
+        <Item Value="CoursePrice"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CoursesU1Iterator" StaticList="false" Uses="LOV_InstructorId" id="InstructorId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

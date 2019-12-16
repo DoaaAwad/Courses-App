@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="invociessearchPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InvoicesU2" RangeSize="25" DataControl="AppModuleAMCoursesDataControl" id="InvoicesU2Iterator"/>
+    <searchRegion Criteria="InvoicesUVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="InvoicesU2Iterator" id="InvoicesUVOCriteriaQuery"/>
+    <iterator Binds="InvoicesU1" RangeSize="25" DataControl="AppModuleAMCoursesDataControl" id="InvoicesU1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InvoicesU2Iterator" id="InvoicesU2">
+      <nodeDefinition DefName="model.uiview.InvoicesUVO" Name="InvoicesU20">
+        <AttrNames>
+          <Item Value="InvoiceTotal"/>
+          <Item Value="PaymentMethod"/>
+          <Item Value="InvoiceNumber"/>
+          <Item Value="StudentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="InvoicesU1Iterator" id="InvoiceStatus" DTSupportsMRU="false" StaticList="true">
+     
+      <ValueList>
+        <Item Value="1"/>
+        <Item Value="0"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>
